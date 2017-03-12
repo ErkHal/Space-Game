@@ -1,0 +1,71 @@
+//Defines the inputs necessary to move the player
+function Movement () {
+    
+    // W KEY
+    if (keyIsDown(87)) {
+        
+        if(player.y <= 0) {
+            
+            player.y = 0;
+            
+        } else {
+            
+        player.y -= speed;
+        
+        }
+    }
+    
+    // S KEY
+    if (keyIsDown(83)) {
+        
+         if(player.y >= height) {
+            
+            player.y = height;
+            
+        } else {
+            
+        player.y += speed;
+        
+        }
+    }
+    
+    // A KEY
+    if (keyIsDown(65)) {
+        
+        if(player.x < 0) {
+        
+            player.x = 0;
+        
+        } else {
+        
+            player.x -= speed
+        
+        }
+        
+    }
+    
+    // D KEY
+    if (keyIsDown(68)) {
+        
+        if(player.x > width/2) {
+            
+            player.x = width/2;
+            
+        } else {
+            
+        player.x += speed; 
+        
+        }
+    }
+    
+    //SPACE
+    if (keyIsDown(32)) {
+        
+        if(frameCount % 12  == 0) {
+        
+            player.shoot();
+        
+        }
+    }
+    
+}

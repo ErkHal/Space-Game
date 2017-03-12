@@ -1,4 +1,4 @@
-<!--
+/*
 #####################################################################################################################################################
                                                                                                                                                     #
                                                                                                                                                     #
@@ -12,20 +12,25 @@
                                                                                                                                                     #
                                                                                                                                                     #
 #####################################################################################################################################################
--->
-
-<html>
-<head>
-    <meta charset="utf-8">
-    <style src="css/style.css"></style>
-    <script language=javascript src="js/p5.js" type="text/javascript"></script>
-    <script src="js/Ship.js"></script>
-    <script src="js/Projectile.js"></script>
-    <script src="js/Movement.js"></script>
-    <script src="js/SpaceGame.js"></script>
-    <script src="js/p5.gif.js"></script>
+*/
+//Spawns the projectiles and moves them.
+function Projectile(x,y) {
     
-</head>
-<body>
-</body>
-</html>
+    this.x = x;
+    this.y = y;
+    
+    this.show = function() {
+    
+    fill(0, 255, 100);
+    rect(this.x, this.y, 7, 5);
+    
+    }
+        
+    //Makes the projectile travel from the ship
+    this.travel = function() {
+        
+            this.x += bulletTravel;
+                
+    }
+    
+}

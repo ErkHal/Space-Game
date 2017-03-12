@@ -1,4 +1,4 @@
-<!--
+/*
 #####################################################################################################################################################
                                                                                                                                                     #
                                                                                                                                                     #
@@ -12,20 +12,75 @@
                                                                                                                                                     #
                                                                                                                                                     #
 #####################################################################################################################################################
--->
-
-<html>
-<head>
-    <meta charset="utf-8">
-    <style src="css/style.css"></style>
-    <script language=javascript src="js/p5.js" type="text/javascript"></script>
-    <script src="js/Ship.js"></script>
-    <script src="js/Projectile.js"></script>
-    <script src="js/Movement.js"></script>
-    <script src="js/SpaceGame.js"></script>
-    <script src="js/p5.gif.js"></script>
+*/
+//Defines the inputs necessary to move the player
+function Movement () {
     
-</head>
-<body>
-</body>
-</html>
+    // W KEY
+    if (keyIsDown(87)) {
+        
+        if(player.y <= 30) {
+            
+            player.y = 30;
+            
+        } else {
+            
+        player.y -= speed;
+        
+        }
+    }
+    
+    // S KEY
+    if (keyIsDown(83)) {
+        
+         if(player.y >= height - 30) {
+            
+            player.y = height - 30;
+            
+        } else {
+            
+        player.y += speed;
+        
+        }
+    }
+    
+    // A KEY
+    if (keyIsDown(65)) {
+        
+        if(player.x < 30) {
+        
+            player.x = 30;
+        
+        } else {
+        
+            player.x -= speed
+        
+        }
+        
+    }
+    
+    // D KEY
+    if (keyIsDown(68)) {
+        
+        if(player.x > width/2) {
+            
+            player.x = width/2;
+            
+        } else {
+            
+        player.x += speed; 
+        
+        }
+    }
+    
+    //SPACE you can limit the firerate by changing the value after the modulus
+    if (keyIsDown(32)) {
+        
+        if(frameCount % 7  == 0) {
+        
+            player.shoot();
+        
+        }
+    }
+    
+}
