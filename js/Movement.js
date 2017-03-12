@@ -5,9 +5,9 @@
     Written by Erkki Halinen                                                                                                                        #
     for a small game project in 2017.                                                                                                               #
                                                                                                                                                     #
-    This project uses p5.js clientside framework for graphics,                                                                                      #
+    This project uses p5.js and processing.js frameworks,                                                                                           #
     and antiboredom's p5.gif.js GitHub: https://github.com/antiboredom/p5.gif.js for displaying .GIF files.                                         #
-    Visit https://p5js.org/ for more info about p5.js framework.                                                                                    #
+    Visit https://p5js.org/ and http://processingjs.org/ for more info about p5.js and processing.js frameworks.                                    #
                                                                                                                                                     #
                                                                                                                                                     #
                                                                                                                                                     #
