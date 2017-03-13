@@ -14,6 +14,8 @@
 #####################################################################################################################################################
 */
 //Spawns the projectiles and moves them.
+var damage = 5;
+
 function Projectile(x,y) {
     
     this.x = x;
@@ -62,12 +64,20 @@ function checkHit() {
             
             if(int(dist(bulletX, bulletY, enemyX, enemyY)) <= 20) {
                 
+                if(enemies[j].health > 5) {
+                    
+                    enemies[j].health -= damage;
+                    projectiles.splice(index, 1);
+                    
+                } else {
+                
                 enemies.splice(j,1);
                 
                 projectiles.splice(index, 1);
                 
                 enemiesDestroyed++;
                 
+                }
             } 
             
         }  

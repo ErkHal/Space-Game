@@ -18,6 +18,7 @@ var bg;
 var speed = 5;
 var projectileSpeed = 6;
 var bulletTravel = 9;
+var isDead = false;
 
 var projectiles = [];
 var enemies = [];
@@ -32,14 +33,15 @@ function setup() {
     
     bg = loadGif("img/movingSpace.gif");
     
-    var row = 0;
-    
 }
 
 
 function draw() {
     
     background(bg);
+    
+    if(!isDead) {
+        
     player.show();
     Movement();
     
@@ -70,14 +72,33 @@ function draw() {
         
     }
     
+    checkCollision();
+    
     updateStats();
+    
+    } else {
+        
+        deathScreen();    
+        
+    }
+    
     
 }
 
 function updateStats() {
     
+    rectMode(CENTER);
     fill(255);
     text("Kills: " + enemiesDestroyed.toString(), width - 100, 60, 100,100);
+    
+}
+
+function deathScreen() {
+    
+    //Splash screen text.
+    fill(240, 0, 0);
+    textSize(40);
+    text("YOU DIED", 450, height/2, 400, 200);
     
 }
 
