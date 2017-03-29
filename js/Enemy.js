@@ -14,7 +14,7 @@
 #####################################################################################################################################################
 */
 //This class creates the enemies.
-var enemySpeed = 4;
+var enemySpeed = 2;
 
 function Enemy(x, y, health) {
     
@@ -22,6 +22,7 @@ function Enemy(x, y, health) {
     this.y = y;
     
     this.health = health
+    this.speed = random(enemySpeed, 6);
     
     this.show = function() {
     
@@ -34,10 +35,10 @@ function Enemy(x, y, health) {
     
     }
         
-    //Makes the enemy close in on the player
+    //Makes the enemy close in on the player on the speed varied by 
     this.approach = function() {
         
-            this.x -= enemySpeed;
+            this.x -= this.speed;
                 
     }
     

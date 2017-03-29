@@ -27,7 +27,7 @@ var enemiesDestroyed = 0;
 
 function setup() {
     
-    createCanvas(720,400);
+    createCanvas(900,500);
     player = new Ship();
     noStroke();
     
@@ -98,7 +98,8 @@ function deathScreen() {
     //Splash screen text.
     fill(240, 0, 0);
     textSize(40);
-    text("YOU DIED", 450, height/2, 400, 200);
+    text("YOU DIED", 550, height/2, 400, 200);
+    text("Kills: " + enemiesDestroyed, 550, height/2 + 100, 400, 200);
     
 }
 
