@@ -16,6 +16,8 @@
 //This class creates the enemies.
 var enemySpeed = 2;
 
+var txtre;
+
 function Enemy(x, y, health) {
     
     this.x = x;
@@ -24,18 +26,19 @@ function Enemy(x, y, health) {
     this.health = health
     this.speed = random(enemySpeed, 6);
     
+    txtre = loadImage("img/UFO.png");
+
     this.show = function() {
     
-    fill(255);
-    rect(this.x, this.y, 20, 20);
+    image(txtre, this.x, this.y);
         
     //Health bar rect
     fill (200,0,0);
-    rect(this.x, this.y - 25, this.health, 5)
+    rect(this.x, this.y - 34, this.health, 5)
     
     }
         
-    //Makes the enemy close in on the player on the speed varied by 
+    //Makes the enemy close in on the player on the speed varied by random
     this.approach = function() {
         
             this.x -= this.speed;
@@ -56,6 +59,7 @@ function checkCollision() {
             
             isDead = true;
             
+            //Displays the game over screen for 4 seconds (4000 milliseconds)
             setTimeout(function() { isDead = false; location.reload(); }, 4000);
             
         }
@@ -63,10 +67,19 @@ function checkCollision() {
     }
 }
 
-//Summons enemies before they appear in the game screen. You can change the range of the enemies spawn location and the diversity of their health.
+//Summons enemies before they appear in the game screen. You can change the range of the enemies spawn location 
+//and the differencies in health.
 function summonEnemies() {
     
     enemy = new Enemy(random(width + 400, width + 800), random(20, height - 20), random(30, 70));
     enemies.push(enemy);
     
 }
+
+//This is the initializer for a boss enemy.
+/*
+function summmonBossEnemy() {
+
+    enemy1 new Enemy(width + 600, )
+
+} */
