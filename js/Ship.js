@@ -44,7 +44,7 @@ function Ship() {
     
     this.shoot = function() {
         
-        ammo = new Projectile(player.x + 50, player.y);
+        ammo = new Projectile(player.x + 50, player.y, false);
         
         projectiles.push(ammo);
         
