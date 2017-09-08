@@ -29,7 +29,6 @@ function Movement () {
         
         }
     }
-
     
     // S KEY
     if (keyIsDown(83)) {
@@ -83,4 +82,5 @@ function Movement () {
         
         }
     }
+    
 }

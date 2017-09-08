@@ -15,29 +15,10 @@
 */
 //This class creates the enemies.
 var enemySpeed = 2;
-var bulletSpeed = -8;
 
 var txtre;
 
 function Enemy(x, y, health) {
-
-    this.semiAuto = false;
-    this.burst = false;
-
-    this.chooseFiringMode = random(1,2);
-
-    if(chooseFiringMode = 1) {
-
-        this.burst = true;
-
-    } else {
-
-        this.semiAuto = true;
-
-    }
-
-    this.bulletX = this.x;
-    this.bulletY = this.y;
     
     this.x = x;
     this.y = y;
@@ -60,17 +41,10 @@ function Enemy(x, y, health) {
     //Makes the enemy close in on the player on the speed varied by random
     this.approach = function() {
         
-        this.x -= this.speed;
+            this.x -= this.speed;
                 
     }
     
-    this.shoot = function() {
-        
-        enemyAmmo = new Projectile(this.x, this.y, true);
-        
-        projectiles.push(enemyAmmo);
-        
-    }
 }
 
 //Checks if the player collides with the enemy. If it occurs, destroys player and displays a splash screen.
@@ -79,13 +53,14 @@ function checkCollision() {
     for (var indexr = 0; indexr < enemies.length; indexr++ ) {
         
         var enemyLocation = createVector(enemies[indexr].x, enemies[indexr].y, 0);
-        var bulletLocation = createVector()
         var playerLocation = createVector(player.x, player.y, 0);
         
-
         if(enemyLocation.dist(playerLocation) <= 50) {
             
             isDead = true;
+            
+            //Displays the game over screen for 4 seconds (4000 milliseconds)
+            setTimeout(function() { isDead = false; location.reload(); }, 4000);
             
         }
         
