@@ -70,6 +70,14 @@ function draw() {
         enemies[index].show();
         enemies[index].approach();
         
+        //Enemies shoot randomly and the occurrence is chosen every frame
+        var enemyFires = random(1, 100);
+        if(enemyFires <= 2 && enemies[index].x <= 900) {
+            
+            enemies[index].shoot();
+            
+        }
+        
     }
     
     checkCollision();
@@ -79,6 +87,9 @@ function draw() {
     } else {
         
         deathScreen();    
+        
+        //Displays the game over screen for 4 seconds (4000 milliseconds)
+        setTimeout(function() { isDead = false; location.reload(); }, 4000);
         
     }
     
